@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pokesystem</title>
-<meta name="description" content="Pokesystem builds systematic trading software for digital asset derivatives markets, deployed on client-held exchange accounts.">
+<meta name="description" content="Pokesystem builds, tests and maintains quantitative trading systems for digital asset markets, deployed on clients' own exchange accounts.">
 <link rel="canonical" href="https://pokesystem.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Pokesystem">
 <meta property="og:title" content="Pokesystem">
-<meta property="og:description" content="Systematic trading software for digital asset derivatives, deployed on client-held exchange accounts.">
+<meta property="og:description" content="Quantitative trading systems for digital asset markets, deployed on clients' own exchange accounts.">
 <meta property="og:url" content="https://pokesystem.com/">
 <meta property="og:image" content="https://pokesystem.com/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -34,21 +34,16 @@
   </header>
 
   <section class="hero">
-    <h1>Systematic trading software for digital asset derivatives, deployed on client-held exchange accounts.</h1>
-    <p>Pokesystem is a software company. We build, test and maintain quantitative trading systems for crypto perpetual futures on Binance, OKX and Bybit, and deploy them for institutional clients and broker partners.</p>
-    <ul class="facts">
-      <li>Binance · OKX · Bybit</li>
-      <li>Perpetual futures</li>
-      <li>One-minute cadence</li>
-    </ul>
+    <h1>Quantitative trading systems for digital asset markets.</h1>
+    <p>Pokesystem builds, tests and maintains them — and deploys them on clients' own exchange accounts. We never hold client funds.</p>
   </section>
 
   <section class="section" id="about">
     <p class="label">What we build</p>
     <div class="body">
-      <h2>A complete pipeline, from exchange data to live orders.</h2>
-      <p>Each system covers the whole chain: market data collection, alpha research, portfolio construction, execution and monitoring. The software runs on infrastructure we operate and connects to the client's own exchange account through trade-only API keys.</p>
-      <p>The client keeps custody of funds and control of API permissions at all times. We do not hold client assets, and we do not ask for withdrawal permissions.</p>
+      <h2>One pipeline, from market data to live orders.</h2>
+      <p>Each system covers the whole chain — data collection, research, portfolio construction, execution and monitoring. The software runs on infrastructure we operate and connects to a client's exchange account through trade-only API keys.</p>
+      <p>Clients keep custody of their funds and control of their API permissions at all times. We never request withdrawal rights.</p>
     </div>
   </section>
 
@@ -57,19 +52,19 @@
     <div class="body blocks">
       <div class="block">
         <h3>Data</h3>
-        <p>Full market data collected directly from each exchange — trades and volume, premium index, funding rates, open interest and order book depth — stored at one-minute resolution and maintained continuously.</p>
+        <p>Full market data collected directly from each venue — trades, premium index, funding, open interest and order-book depth — stored at one-minute resolution and maintained continuously.</p>
       </div>
       <div class="block">
         <h3>Research</h3>
-        <p>A large pool of raw alphas built on that data, constructed to be mutually low-correlated. Selection and weighting are re-run periodically with statistical methods. Backtests are strictly point-in-time and include trading costs, latency and funding, so simulated and live behaviour are compared like for like.</p>
+        <p>A large pool of raw signals built on that data, constructed to be mutually low-correlated. Selection and weighting are re-run periodically with statistical methods. Backtests are strictly point-in-time and include trading costs, latency and funding, so simulated and live behaviour are compared like for like.</p>
       </div>
       <div class="block">
         <h3>Portfolio and execution</h3>
-        <p>Market-neutral statistical arbitrage across BTC, ETH and a universe of liquid altcoin perpetuals. Positions are recalculated at one-minute intervals and placed through an execution layer tuned to each exchange. Every exchange runs its own independent system; nothing is shared between venues.</p>
+        <p>Market-neutral statistical arbitrage across the most liquid perpetual contracts. Positions are recalculated every minute and placed through an execution layer tuned to each venue. Every venue runs its own independent system.</p>
       </div>
       <div class="block">
         <h3>Deployment and controls</h3>
-        <p>Each account is configured independently — exchange, instrument set, sizing and risk limits — and monitored around the clock, with automated alerts on data, connectivity and position anomalies. Funds never leave the client's account.</p>
+        <p>Each account is configured independently — venue, instrument set, sizing and risk limits — and monitored around the clock, with automated alerts on data, connectivity and position anomalies.</p>
       </div>
     </div>
   </section>
