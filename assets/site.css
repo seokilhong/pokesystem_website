@@ -145,6 +145,13 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 .doc p { margin: 0 0 1em; }
 .doc .meta { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
 
+/* Notes list */
+.notes-list { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 28px; }
+.notes-list li { border-top: 1px solid var(--rule); padding-top: 20px; display: grid; gap: 6px; }
+.notes-list a { font-family: var(--sans); font-weight: 500; font-size: 1.15rem; letter-spacing: -0.01em; color: var(--ink); }
+.notes-list a:hover { color: var(--accent); text-decoration: none; }
+.notes-list p { margin: 0; font-size: 0.98rem; color: var(--muted); }
+
 /* Footer */
 footer {
   border-top: 1px solid var(--rule); padding: 36px 0 56px;

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What we can and cannot do on a client's account — Pokesystem</title>
+<meta name="description" content="The account stays the client's. One trade-only API key, no withdrawal rights, daily reconciliation, and a record the client can check without us.">
+<link rel="canonical" href="https://pokesystem.com/notes/what-we-can-and-cannot-do.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Pokesystem">
+<meta property="og:title" content="What we can and cannot do on a client's account">
+<meta property="og:description" content="The account stays the client's. One trade-only API key, no withdrawal rights, daily reconciliation, and a record the client can check without us.">
+<meta property="og:url" content="https://pokesystem.com/notes/what-we-can-and-cannot-do.html">
+<meta property="og:image" content="https://pokesystem.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'><rect%20x=%220%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%225%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2210%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2215%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%225%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2215%22%20y=%225%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%225%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2210%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2215%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%2215%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%2220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <a class="wordmark" href="../"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="0" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="5" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="10" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="15" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="5" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="15" y="5" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="5" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="10" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="15" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="15" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="20" width="4" height="4" rx="0.6" fill="var(--accent)"/></svg><span>POKESYSTEM</span></a>
+    <nav class="nav" aria-label="Site">
+      <a href="../">Home</a>
+      <a href="./">Notes</a>
+      <a class="cta" href="../#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- LEGAL REVIEW PENDING: wording to be confirmed by counsel before the site is used formally. -->
+  <main class="doc">
+    <p class="meta">Note 01 · September 2026</p>
+    <h1>What we can and cannot do on a client's account</h1>
+
+    <p>The first question we are asked is rarely about signals. It is simpler: what exactly can your software do with my account, and what can it not do? This note answers that in full.</p>
+
+    <h2>The account stays the client's</h2>
+    <p>A client opens the exchange account in its own name and keeps the login. Deposits and withdrawals are made by the client, to and from the client. Nothing is ever transferred to us, and we never hold client funds. If Pokesystem disappeared tomorrow, the account and everything in it would still be exactly where it is.</p>
+
+    <h2>One key, one permission</h2>
+    <p>The client creates an API key and gives it a single permission: trading. Withdrawal and transfer rights stay switched off, and the key is bound to the fixed addresses of the servers we operate, so it is useless anywhere else. We never ask for more than this, and a key that carries more is one we will ask the client to reissue.</p>
+    <p>With that key the software can do three things: read the account, place orders, and cancel them. It cannot move funds, change the account's settings, or create other keys.</p>
+
+    <h2>What we check every day</h2>
+    <p>Our systems keep their own record of every position and balance. Once a day that record is compared with what the venue reports, account by account. A difference we cannot explain is treated as an incident: it is investigated before any other work, and the client hears about it from us first.</p>
+    <p>Between those checks, monitoring runs around the clock. Alerts fire on stale data, lost connectivity, and any position that drifts from its target.</p>
+
+    <h2>Nothing has to be taken on trust</h2>
+    <p>Every order, fill, fee and funding payment appears in the client's own account history at the venue, the moment it happens. The client can review it at any time with its own login, or give read-only access to its administrator or auditor, without involving us. What we report can always be checked against a source we do not control.</p>
+
+    <h2>Stopping takes one click</h2>
+    <p>The client can delete the key at any moment, and from that second the software can place no further orders. In practice we agree an orderly wind-down first, because open positions remain in the account either way. But the switch belongs to the client, and it does not need our cooperation to work.</p>
+
+    <p>That is the whole arrangement. We build and run the software; the client owns the account, holds the funds, and keeps the off switch.</p>
+  </main>
+
+  <footer>
+    <div class="legal">
+      <span>© 2026 POKESYSTEM</span>
+      <span><a href="mailto:master@pokesystem.com">master@pokesystem.com</a></span>
+      <span><a href="./">Notes</a></span>
+      <span><a href="../privacy.html">Privacy</a></span>
+    </div>
+    <p class="disclaimer">Pokesystem is a software company. Nothing on this site constitutes investment advice, or an offer or solicitation to buy or sell any financial instrument or digital asset. Software is provided to institutional counterparties under separate written agreement.</p>
+  </footer>
+
+</div>
+</body>
+</html>
