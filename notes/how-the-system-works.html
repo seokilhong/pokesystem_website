@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How the system works — Pokesystem</title>
+<meta name="description" content="What the strategy is trying to capture, why many weak signals and three independent venues matter, and how each stage from data to live orders is built and tested.">
+<link rel="canonical" href="https://pokesystem.com/notes/how-the-system-works.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Pokesystem">
+<meta property="og:title" content="How the system works">
+<meta property="og:description" content="What the strategy is trying to capture, why many weak signals and three independent venues matter, and how each stage from data to live orders is built and tested.">
+<meta property="og:url" content="https://pokesystem.com/notes/how-the-system-works.html">
+<meta property="og:image" content="https://pokesystem.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'><rect%20x=%220%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%225%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2210%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2215%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%225%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2215%22%20y=%225%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%225%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2210%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2215%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%2215%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%2220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <a class="wordmark" href="../"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="0" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="5" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="10" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="15" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="5" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="15" y="5" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="5" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="10" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="15" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="15" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="20" width="4" height="4" rx="0.6" fill="var(--accent)"/></svg><span>POKESYSTEM</span></a>
+    <nav class="nav" aria-label="Site">
+      <a href="../">Home</a>
+      <a href="./">Notes</a>
+      <a class="cta" href="../#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- LEGAL REVIEW PENDING: wording to be confirmed by counsel before the site is used formally. -->
+  <main class="doc">
+    <p class="meta">Note 02 · October 2026</p>
+    <h1>How the system works</h1>
+
+    <p>The home page describes the system in a paragraph. This note walks through it in the order it runs, so that a reader doing due diligence can see where each number comes from and what would break if a piece failed. Two questions first.</p>
+
+    <h2>What the strategy is trying to capture</h2>
+    <p>Perpetual markets are spread across hundreds of contracts on several venues, and most of the flow in them comes from leveraged traders acting on the same news at different speeds. For minutes to hours at a time, individual contracts are pushed away from where their relationship to the rest of the market says they should be, and then drift back. The strategy takes relative positions — long some contracts, short others — to capture that drift, with no view on the direction of the market as a whole. The return comes from many small, repeated corrections rather than from a few large calls.</p>
+
+    <h2>Why many signals and three venues</h2>
+    <p>No single signal of this kind is strong, and any single one fades. A large pool of weak, mutually low-correlated signals gives a return that depends on the average behaviour of the pool rather than on any member of it, which is what makes the result stable enough to be sized. The same logic applies across venues: Binance, OKX and Bybit each run their own system on their own data, and their daily returns correlate only 0.4–0.7, so a client blending the three gets a smoother path than any one of them. Everything below exists to make that pool of signals and that independence real.</p>
+
+    <h2>1. Data</h2>
+    <p>Everything starts with our own data. Since 2023 we have collected the full market data feed from each venue directly — trades, premium index, funding rates, open interest and order-book depth — and stored it at one-minute resolution. We do not buy processed signals; the raw data is ours, and every strategy ever tested can be re-run on it. In 2026 we added a premium data source to widen the inputs beyond what the venues publish.</p>
+
+    <h2>2. Signals</h2>
+    <p>On that data we build the signal pool: simple, individually weak predictors of relative moves between contracts. The pool is constructed so that its members are mutually low-correlated, which matters more than any single signal's strength. Candidates are added continuously and most fail testing; a later note covers how that testing works.</p>
+
+    <h2>3. Portfolio construction</h2>
+    <p>Once a week the best signals are selected from the pool and weighted into a single portfolio using statistical methods. The portfolio is market-neutral across BTC, ETH and 30–40 of the most liquid perpetuals; net exposure stays within ±20% of the book and has averaged about 5% in 2026. Each venue has its own portfolio, built and optimised independently — the three systems do not share positions or signals.</p>
+
+    <h2>4. Testing discipline</h2>
+    <p>Backtests are strictly point-in-time: a strategy sees only the data that existed at each moment, with the costs, latency and funding it would actually have paid. Live and simulated behaviour are compared like for like, every day. When they diverge beyond what costs explain, that is a research item, not something to be averaged away.</p>
+
+    <h2>5. Execution</h2>
+    <p>Target positions are recalculated every minute and turned into orders by an execution layer tuned to each venue. Daily turnover is 300–400% of the book. Execution is researched separately from signals — how to slice, when to post and when to take, per venue — and measured against the signal's own decay.</p>
+
+    <h2>6. Risk</h2>
+    <p>Risk is expressed through position size, concentration and overall exposure. No single coin exceeds 10% of the book, net exposure is held within ±20%, and book size scales with the account balance, so exposure contracts through a drawdown and re-scales with recovery. We size rather than use hard stops: in this market much of the return arrives in the rebound after a dislocation, and a stop sells it. Leverage is set per account, between 1× and 2×, and a lower setting lowers the drawdown in proportion.</p>
+
+    <h2>7. Operations</h2>
+    <p>The system runs unattended, 24/7. Automated playbooks are the first responder: on an error the system halts, reconciles its internal position state against the exchange, reconnects feeds or restarts a strategy, and logs and alerts every action. Once a day, every account's positions and balances are reconciled against what the venue reports; a difference we cannot explain is an incident, investigated before anything else and reported to the client first.</p>
+
+    <h2>8. The client's account</h2>
+    <p>All of this runs on the client's own exchange account through a single trade-only API key — no withdrawal rights, restricted to our servers. The client sees every fill, fee and funding payment in its own account history and can stop the software by deleting the key. <a href="what-we-can-and-cannot-do.html">Note 01</a> covers this in full.</p>
+
+    <h2>9. How it has changed, and what is next</h2>
+    <p>Binance went live in November 2023, OKX followed in 2024 and Bybit in 2025, each as an independent system. Live trading showed where model and market diverge: execution costs that vary by venue and hour, contracts whose behaviour changes after listing, and periods when strategies that had been consistently profitable lose together. After the drawdown of summer 2026 we added a premium data source and low-correlation strategies on larger contracts, brought LLM-assisted tooling into research, and tightened the universe filter for erratic contracts; realised volatility of the blend has roughly halved since late August 2026. The current work is capacity toward US$30–50M across venues, venue-specific execution research, and client-facing reporting.</p>
+  </main>
+
+  <footer>
+    <div class="legal">
+      <span>© 2026 POKESYSTEM</span>
+      <span><a href="mailto:master@pokesystem.com">master@pokesystem.com</a></span>
+      <span><a href="./">Notes</a></span>
+      <span><a href="../privacy.html">Privacy</a></span>
+    </div>
+    <p class="disclaimer">Pokesystem is a software company. Nothing on this site constitutes investment advice, or an offer or solicitation to buy or sell any financial instrument or digital asset. Software is provided to institutional counterparties under separate written agreement.</p>
+  </footer>
+
+</div>
+</body>
+</html>

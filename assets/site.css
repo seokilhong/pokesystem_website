@@ -176,3 +176,6 @@ footer .disclaimer { max-width: 78ch; }
 .table th, .table td { text-align: left; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--rule); }
 .table th { font-family: var(--mono); font-weight: 500; font-size: 0.74rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
 .table td:not(:first-child), .table th:not(:first-child) { font-family: var(--mono); font-size: 0.9rem; }
+.actions { margin: 20px 0 0; }
+a.btn { display: inline-block; text-decoration: none; }
+.body strong { font-weight: 600; }

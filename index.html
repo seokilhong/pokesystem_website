@@ -29,6 +29,7 @@
     <nav class="nav" aria-label="Site">
       <a href="#record">Track record</a>
       <a href="#system">How we trade</a>
+      <a href="#evolution">How it has evolved</a>
       <a href="#custody">Your account</a>
       <a href="#firm">The firm</a>
       <a href="notes/">Notes</a>
@@ -38,7 +39,7 @@
 
   <section class="hero">
     <h1>Market-neutral statistical arbitrage in digital-asset perpetuals. Live since November 2023.</h1>
-    <p>Pokesystem runs a proprietary mid-frequency system on the three largest perpetual venues for institutional and professional clients. The system trades on each client's own exchange account; we never hold client funds.</p>
+    <p>Pokesystem runs a proprietary mid-frequency system on the three largest perpetual venues for institutional and professional clients. Proprietary data, a signal pool built to be low-correlated, and three independent venue systems — all researched, built and run in-house.</p>
     <div class="tiles" aria-label="Key figures">
       <div class="tile"><span class="num">34 months</span><span class="cap">live trading</span></div>
       <div class="tile"><span class="num">US$15M+</span><span class="cap">allocated by clients</span></div>
@@ -46,6 +47,7 @@
       <div class="tile"><span class="num">+100%</span><span class="cap">annualised net return, 1×</span></div>
     </div>
     <p class="fine">Figures as of 30 September 2026. Return is a conservative summary across venue allocations; all performance on this page is measured from actual account balance changes, net of trading fees and funding, non-compounded, at 1× leverage, before performance fees.</p>
+    <p class="actions"><a class="btn" href="#contact">Request strategy overview</a></p>
   </section>
 
   <section class="section" id="record">
@@ -66,6 +68,7 @@
       <p>Eighty-five percent of full calendar months have been positive. There have been two drawdowns deeper than 20%: −23.6% in October–November 2025, recovered within a week, and −21.9% from July to August 2026, which is still open — at 30 September the blend stood 12% below its July high. Daily-return correlations between the three venue systems are 0.4–0.7, so a blend runs a smoother path than any single venue.</p>
       <h3>Verify it at the source</h3>
       <p>We share the full daily return series of each venue system as a workbook, and a read-only API key on a live account so the stream can be checked directly at the exchange. Most clients verify the live account this way, start with a test allocation, and scale up over time.</p>
+      <p class="actions"><a class="btn" href="#contact">Request the full track record</a></p>
     </div>
   </section>
 
@@ -94,16 +97,27 @@
       </div>
       <div class="block">
         <h3>Risk</h3>
-        <p>Sizing, not stop-losses. No single coin exceeds 10% of the book, book size scales with the account balance, and exposure contracts through drawdowns and re-scales with recovery. Hard stops are avoided by design because they repeatedly forfeit the rebound that follows dislocations.</p>
+        <p>Risk is expressed through position size, concentration and overall exposure. No single coin exceeds 10% of the book, net exposure is held within ±20%, and book size scales with the account balance, so exposure contracts through drawdowns and re-scales with recovery. Leverage and sizing are set per account; the reasoning behind sizing rather than hard stops is covered in the due-diligence materials.</p>
       </div>
       <div class="block">
         <h3>Operations</h3>
         <p>Fully automated, 24/7. Automated playbooks are the first responder to any incident — halting, reconciling positions against the exchange, reconnecting feeds or restarting a strategy — with every action logged and alerted. Instance health is monitored continuously.</p>
       </div>
       <div class="block">
-        <h3>How it has evolved</h3>
-        <p>Binance live in November 2023; OKX added in 2024; Bybit in 2025. In 2026, after the summer drawdown, a premium data source and low-correlation large-cap strategies were added and research was widened with LLM-assisted tooling; realised volatility roughly halved in the second half of the year. Current work: capacity toward US$30–50M, venue-specific execution research, and client-facing reporting.</p>
+        <h3>In depth</h3>
+        <p>The full walk-through — what the strategy is trying to capture, why many weak signals and three independent venues matter, and how each stage is tested — is in <a href="notes/how-the-system-works.html">Note 02, How the system works</a>.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="evolution">
+    <p class="label">How it has evolved</p>
+    <div class="body">
+      <h2>Built in live markets, improved by what they taught us.</h2>
+      <p><strong>The base.</strong> The system went live on Binance in November 2023 with its own data, its own signal pool and its own execution. OKX followed in 2024 and Bybit in 2025, each as an independent system rather than a copy — the venues differ in participants, fees and microstructure, and a portfolio tuned to one does not transfer unchanged to another.</p>
+      <p><strong>What live trading showed.</strong> Three years of daily reconciliation between simulated and live results taught us where the model and the market diverge: execution costs that vary by venue and by hour, contracts whose behaviour changes after listing, and periods when strategies that had been consistently profitable lose together. The drawdown of summer 2026 was of that last kind, and it set the agenda for the year.</p>
+      <p><strong>What changed.</strong> We added a premium data source and a set of low-correlation strategies aimed at larger, more liquid contracts; brought LLM-assisted tooling into research, which widened the range of data and ideas feeding the signal pool; and tightened the universe filter for contracts that trade erratically after listing. Realised volatility of the blend has roughly halved since late August 2026.</p>
+      <p><strong>What we are working on.</strong> Capacity toward US$30–50M across the three venues, execution research specific to each venue, and client-facing reporting so each client can follow its account without asking us.</p>
     </div>
   </section>
 
@@ -119,8 +133,8 @@
   <section class="section" id="firm">
     <p class="label">The firm</p>
     <div class="body">
-      <h2>One manager, one system, built from the ground up.</h2>
-      <p>Pokesystem is a one-manager quantitative trading firm. Its founder has spent seven years in systematic markets — first in equity statistical arbitrage at hedge funds trading US and European equities, then in crypto derivatives from 2021, running client capital at a digital-asset trading firm before founding Pokesystem. The system behind this track record is entirely proprietary and has traded live client and proprietary capital without interruption since November 2023.</p>
+      <h2>Seven years in systematic trading. Research through live execution.</h2>
+      <p>Pokesystem's founder has spent seven years in systematic markets — first in equity statistical arbitrage at hedge funds trading US and European equities, then in crypto derivatives from 2021, running client capital at a digital-asset trading firm before founding Pokesystem. Research, execution and client relationships sit with the same person, so what a client is told about the system comes from the person who built and runs it. The system itself is designed to run unattended, with automated incident handling, so day-to-day operation does not depend on anyone being at a desk. It has traded live client and proprietary capital without interruption since November 2023.</p>
     </div>
   </section>
 
@@ -146,8 +160,8 @@
           <input id="f-org" name="organization" type="text" autocomplete="organization">
         </div>
         <div class="field">
-          <label for="f-msg">Message</label>
-          <textarea id="f-msg" name="message" required placeholder="What you would like to receive, and anything about your allocation that helps us answer well."></textarea>
+          <label for="f-msg">Message (optional)</label>
+          <textarea id="f-msg" name="message" placeholder="What you would like to receive, and anything about your allocation that helps us answer well."></textarea>
         </div>
         <input type="hidden" name="_subject" value="Website enquiry — pokesystem.com">
         <div class="hp" aria-hidden="true">
