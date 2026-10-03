@@ -162,3 +162,17 @@ footer .legal { display: flex; flex-wrap: wrap; gap: 6px 24px; }
 footer .legal a { color: var(--muted); }
 footer .legal a:hover { color: var(--accent); }
 footer .disclaimer { max-width: 78ch; }
+
+/* v5 (2026-10-03): key-figure tiles, fine print, record table */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 40px 0 16px; }
+@media (min-width: 720px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+.tile { background: var(--paper); padding: 18px 18px 16px; display: grid; gap: 4px; }
+.tile .num { font-family: var(--sans); font-weight: 600; font-size: 1.6rem; letter-spacing: -0.02em; line-height: 1.1; }
+.tile .cap { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); }
+.fine { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); max-width: 72ch; margin: 0; }
+.body .fine { margin: 8px 0 1em; }
+.body h3 { font-family: var(--sans); font-weight: 500; font-size: 1.05rem; margin: 28px 0 8px; letter-spacing: -0.01em; }
+.table { width: 100%; border-collapse: collapse; margin: 18px 0 0; font-size: 0.95rem; }
+.table th, .table td { text-align: left; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--rule); }
+.table th { font-family: var(--mono); font-weight: 500; font-size: 0.74rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.table td:not(:first-child), .table th:not(:first-child) { font-family: var(--mono); font-size: 0.9rem; }
