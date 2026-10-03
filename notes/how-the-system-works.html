@@ -46,7 +46,7 @@
     <p>Everything starts with our own data. Since 2023 we have collected the full market data feed from each venue directly — trades, premium index, funding rates, open interest and order-book depth — and stored it at one-minute resolution. We do not buy processed signals; the raw data is ours, and every strategy ever tested can be re-run on it. In 2026 we added a premium data source to widen the inputs beyond what the venues publish.</p>
 
     <h2>2. Signals</h2>
-    <p>On that data we build the signal pool: simple, individually weak predictors of relative moves between contracts. The pool is constructed so that its members are mutually low-correlated, which matters more than any single signal's strength. Candidates are added continuously and most fail testing; a later note covers how that testing works.</p>
+    <p>On that data we build the signal pool: simple, individually weak predictors of relative moves between contracts. The pool is constructed so that its members are mutually low-correlated, which matters more than any single signal's strength. Candidates are added continuously and most fail testing; <a href="how-research-earns-a-place.html">Note 03</a> covers how a candidate earns a place.</p>
 
     <h2>3. Portfolio construction</h2>
     <p>Once a week the best signals are selected from the pool and weighted into a single portfolio using statistical methods. The portfolio is market-neutral across BTC, ETH and 30–40 of the most liquid perpetuals; net exposure stays within ±20% of the book and has averaged about 5% in 2026. Each venue has its own portfolio, built and optimised independently — the three systems do not share positions or signals.</p>

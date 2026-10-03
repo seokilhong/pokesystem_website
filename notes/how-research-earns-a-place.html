@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How research earns a place in live trading — Pokesystem</title>
+<meta name="description" content="A promising backtest is the beginning of a decision, not the end. How we judge whether a candidate strategy deserves a place in the portfolio that trades client accounts.">
+<link rel="canonical" href="https://pokesystem.com/notes/how-research-earns-a-place.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Pokesystem">
+<meta property="og:title" content="How research earns a place in live trading">
+<meta property="og:description" content="A promising backtest is the beginning of a decision, not the end. How we judge whether a candidate strategy deserves a place in the portfolio that trades client accounts.">
+<meta property="og:url" content="https://pokesystem.com/notes/how-research-earns-a-place.html">
+<meta property="og:image" content="https://pokesystem.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'><rect%20x=%220%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%225%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2210%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2215%22%20y=%220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%225%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2215%22%20y=%225%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%225%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2210%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%2215%22%20y=%2210%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%2215%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/><rect%20x=%220%22%20y=%2220%22%20width=%224%22%20height=%224%22%20rx=%220.6%22%20fill=%22#0E6B60%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <a class="wordmark" href="../"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="0" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="5" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="10" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="15" y="0" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="5" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="15" y="5" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="5" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="10" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="15" y="10" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="15" width="4" height="4" rx="0.6" fill="currentColor"/><rect x="0" y="20" width="4" height="4" rx="0.6" fill="var(--accent)"/></svg><span>POKESYSTEM</span></a>
+    <nav class="nav" aria-label="Site">
+      <a href="../">Home</a>
+      <a href="./">Notes</a>
+      <a class="cta" href="../#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- LEGAL REVIEW PENDING: wording to be confirmed by counsel before the site is used formally. -->
+  <main class="doc">
+    <p class="meta">Note 03 · October 2026</p>
+    <h1>How research earns a place in live trading</h1>
+
+    <p>A promising backtest is the beginning of a decision, not the end of one. Before a candidate strategy trades a client account, we ask three things of it: does its edge survive realistic costs, does it add something the portfolio does not already have, and can it be executed at the intended size. This note explains how that assessment is made. Thousands of candidates go through it in a year; a few earn a place.</p>
+
+    <h2>Start with a hypothesis, not a search</h2>
+    <p>Every line of research begins with a written hypothesis: which data, which transformation, which horizon, and why a relative mispricing should exist there. The candidates in that line are variations on the one idea, generated from the specification rather than discovered by hand. A search over enough parameters will always find something that worked in the past, so we count every variation that was run and compare the best of them against what chance alone would have produced across that many attempts. A result that does not clear that bar is noted and set aside.</p>
+
+    <h2>Simulate what would actually have happened</h2>
+    <p>Every candidate is simulated on our own one-minute data with a model of what the trades would have cost: exchange fees, the order's effect on price, the delay between signal and fill, and funding on the positions held. Simulations are strictly point-in-time, so a strategy sees only the data that existed at each moment. The same candidate is also run under a stress assumption of several times the normal cost, which shows whether an edge is real or an artefact of the best available fee tier.</p>
+
+    <h2>Three questions that end the discussion</h2>
+    <p>Whatever its headline return, a candidate goes no further if any of these fails.</p>
+    <p><strong>Does it survive a delay?</strong> Each signal is re-run with its inputs arriving a few minutes late, then an hour, then just past the boundary at which the data is aggregated. A return that disappears under a short delay is either a timing error in the data or an edge that decays faster than it can be traded. The delay test distinguishes the two, and both are reasons not to trade it as it stands.</p>
+    <p><strong>Is it one coin in disguise?</strong> The best-contributing contract is removed and the candidate is re-scored. If its return goes with it, what looked like a signal was a single position.</p>
+    <p><strong>Does it pay for itself?</strong> After costs and funding, a candidate must be positive as a standalone strategy. Something that only pays off as a hedge for the rest of the book may still have a use, but it is an insurance premium and is evaluated as one.</p>
+
+    <h2>The question that matters most: is the portfolio better with it?</h2>
+    <p>A candidate that survives those tests has earned a score, not a place. The score is how much the live portfolio's risk-adjusted return would have improved had the candidate been added at a fixed weight — measured against the positions the portfolio actually held. A candidate that duplicates a signal already in the book scores near zero however good it looks on its own; one with a modest standalone return but little overlap can score well. This is where most of the judgement lives, because the client's result is the portfolio's result, not any one strategy's.</p>
+    <p>A recent case shows the shape of it. A candidate built on venue liquidity data had a strong standalone record and passed every test above. Looked at inside the portfolio, a large share of its return came from funding payments rather than price moves, its contribution was concentrated in smaller contracts where our size would move the market, and its turnover at live scale would have cost more than the edge it added. Each point on its own was arguable; together they meant it did not improve the portfolio at the size we would actually trade. It was held, with those three findings recorded, and the next line of research on that data was specified to address them.</p>
+
+    <h2>One look at data nobody has fitted</h2>
+    <p>Each round of research holds back a period of history that no candidate has been fitted or selected on, and the shortlist is tested against it once. This is a sign check rather than a verdict — a few months of data cannot separate a good strategy from a lucky one with confidence — so passing it does not mean adoption. It means the candidate moves to the slower stages: running in shadow beside the live book, then at small size, then at scale, with its live behaviour compared to its simulation every day.</p>
+
+    <h2>How the research accumulates</h2>
+    <p>Every candidate that is held or set aside leaves its reasons on record, and those reasons are a map of the market as we have found it: edges that turned out to be funding-rate bets, edges that trade too often to survive real execution, edges that live only in contracts too small for client size, data that is not yet carried in the live system, capacity that fades faster than the signal. Each finding changes how the next line of research is written, so the process tightens where the market has shown it needs to. Faster experimentation — much of it now assisted by LLM tooling that generates and documents candidates — gives us more ideas to examine; each addition still needs a clear role in the portfolio before it touches a client account.</p>
+    <p>Our aim is to widen the portfolio's sources of return while keeping the discipline that connects research to live trading intact. The strategies trading client accounts today earned their place this way, and the ones that join them will have to as well.</p>
+
+    <h2>Explore the live results behind the system</h2>
+    <p>The reference pack contains the strategy overview, the full daily return series for each venue since November 2023, and arrangements for read-only verification on a live account.</p>
+    <p class="actions"><a class="btn" href="../#contact">Request the strategy overview and track record</a></p>
+  </main>
+
+  <footer>
+    <div class="legal">
+      <span>© 2026 POKESYSTEM</span>
+      <span><a href="mailto:master@pokesystem.com">master@pokesystem.com</a></span>
+      <span><a href="./">Notes</a></span>
+      <span><a href="../privacy.html">Privacy</a></span>
+    </div>
+    <p class="disclaimer">Pokesystem is a software company. Nothing on this site constitutes investment advice, or an offer or solicitation to buy or sell any financial instrument or digital asset. Software is provided to institutional counterparties under separate written agreement.</p>
+  </footer>
+
+</div>
+</body>
+</html>
