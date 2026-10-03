@@ -36,8 +36,6 @@
     <p class="meta">Note 02 · October 2026</p>
     <h1>How the system works</h1>
 
-    <p>The home page describes the system in a paragraph. This note walks through it in the order it runs, so that a reader doing due diligence can see where each number comes from and what would break if a piece failed. Two questions first.</p>
-
     <h2>What the strategy is trying to capture</h2>
     <p>Perpetual markets are spread across hundreds of contracts on several venues, and most of the flow in them comes from leveraged traders acting on the same news at different speeds. For minutes to hours at a time, individual contracts are pushed away from where their relationship to the rest of the market says they should be, and then drift back. The strategy takes relative positions — long some contracts, short others — to capture that drift, with no view on the direction of the market as a whole. The return comes from many small, repeated corrections rather than from a few large calls.</p>
 
@@ -70,6 +68,10 @@
 
     <h2>9. How it has changed, and what is next</h2>
     <p>Binance went live in November 2023, OKX followed in 2024 and Bybit in 2025, each as an independent system. Live trading showed where model and market diverge: execution costs that vary by venue and hour, contracts whose behaviour changes after listing, and periods when strategies that had been consistently profitable lose together. After the drawdown of summer 2026 we added a premium data source and low-correlation strategies on larger contracts, brought LLM-assisted tooling into research, and tightened the universe filter for erratic contracts; realised volatility of the blend has roughly halved since late August 2026. The current work is capacity toward US$30–50M across venues, venue-specific execution research, and client-facing reporting.</p>
+
+    <h2>Explore the live results behind the system</h2>
+    <p>The reference pack contains the strategy overview, the full daily return series for each venue since November 2023, and arrangements for read-only verification on a live account.</p>
+    <p class="actions"><a class="btn" href="../#contact">Request the strategy overview and track record</a></p>
   </main>
 
   <footer>
