@@ -39,34 +39,20 @@
 
   <section class="hero">
     <h1>Market-neutral strategies for digital assets.</h1>
-    <p>Pokesystem develops and operates systematic statistical-arbitrage strategies in perpetual futures for institutional and professional clients, across the major exchanges, on the clients' own accounts.</p>
-    <div class="tiles" aria-label="Key figures">
-      <div class="tile"><span class="num">Since 2023</span><span class="cap">live trading</span></div>
-      <div class="tile"><span class="num">US$15M+</span><span class="cap">allocated by clients</span></div>
+    <p>Systematic statistical arbitrage in perpetual futures across the major exchanges, built to earn its return independently of market direction.</p>
+    <div class="tiles tiles-3" aria-label="Key figures">
+      <div class="tile"><span class="num">US$15M+</span><span class="cap">client allocations</span></div>
       <div class="tile"><span class="num">20+</span><span class="cap">institutional and professional clients</span></div>
-      <div class="tile"><span class="num">Every year</span><span class="cap">positive since launch</span></div>
+      <div class="tile"><span class="num">Since 2023</span><span class="cap">live trading</span></div>
     </div>
-    <p class="actions"><a class="btn" href="#record">Explore our track record</a> <a class="btn" href="#contact">Request an overview</a></p>
-  </section>
-
-  <section class="section" id="record">
-    <p class="label">Track record</p>
-    <div class="body">
-      <h2>Nearly three years of live, verifiable results.</h2>
-      <p>The system has traded client and proprietary accounts continuously since late 2023 and has been profitable in every calendar year since launch. Returns have been high for a market-neutral approach, with risk-adjusted performance that places the blended portfolio well above its individual exchange components. Drawdowns have been real — the two largest were in the low twenties, one recovered within weeks, one begun in July 2026 and still being recovered — and they are part of the record, not footnotes to it.</p>
-      <p>Results differ by exchange, by leverage and by when an allocation started, so no single figure describes every account. Each client's statement is reconciled to that client's own account, and the full record is shared as data rather than as a headline.</p>
-      <h3>Verify it at the source</h3>
-      <p>We share the full daily return series of each exchange system as a workbook, and a read-only API key on a live account so the stream can be checked directly at the exchange. Most clients verify the live account this way, start with a test allocation, and scale up over time.</p>
-      <details class="method"><summary>Methodology</summary><p>Performance in the reference pack is measured from actual account balance changes, net of trading fees and funding, before performance fees, non-compounded, at 1× leverage, per exchange and as a blended allocation, with figures stated as of the end of the latest completed month.</p></details>
-      <p class="actions"><a class="btn" href="#contact">Request the full track record</a></p>
-    </div>
+    <p class="actions"><a class="btn" href="#contact">Request an overview</a> <a class="btn btn-secondary" href="#record">Explore our track record</a></p>
   </section>
 
   <section class="section" id="clients">
     <p class="label">Clients</p>
     <div class="body">
       <h2>Quantitative trading firms, family offices and digital-asset managers.</h2>
-      <p>More than twenty clients have allocated over US$15 million to the system, most of them introduced by broker partners who have placed several clients with us. Clients choose a single venue or a blend, and a leverage setting between 1× and 2×; each account runs on its own configuration. Results are reported per account and reconciled against the exchange daily.</p>
+      <p>More than twenty clients have allocated over US$15 million to the strategies. Most were introduced by broker partners who, having placed one client with us, went on to place several more. Most clients begin with a test allocation, verify the live account directly, and scale up over time.</p>
     </div>
   </section>
 
@@ -74,29 +60,32 @@
     <p class="label">Strategy</p>
     <div class="body blocks">
       <div class="block">
-        <h3>Data</h3>
-        <p>Full market data collected directly from each exchange — trades, premium index, funding, open interest and order-book depth — at one-minute resolution, maintained continuously since 2023.</p>
+        <h3>Where we find opportunity</h3>
+        <p>Perpetual markets are spread across hundreds of contracts, and most of the flow in them comes from leveraged traders reacting to the same information at different speeds. For minutes to hours, individual contracts are pushed away from where their relationship to the rest of the market says they should be. We research these statistical relationships — in price, liquidity, positioning and funding — using full market data we collect ourselves.</p>
       </div>
       <div class="block">
-        <h3>Research</h3>
-        <p>A large pool of raw signals constructed to be mutually low-correlated. Selection and weighting are re-run weekly with statistical methods. Backtests are strictly point-in-time and include trading costs, latency and funding, so simulated and live results are compared like for like.</p>
+        <h3>How we build the portfolio</h3>
+        <p>Many weak, mutually low-correlated signals are combined into one long–short portfolio across the most liquid contracts, so the result depends on the behaviour of the pool rather than on any single idea, and carries little exposure to the direction of the market. Each exchange runs its own independent portfolio, and a blend across exchanges runs a smoother path than any one of them.</p>
       </div>
       <div class="block">
-        <h3>Portfolio</h3>
-        <p>Market-neutral across BTC, ETH and the most liquid altcoin perpetuals. Positions are recalculated every minute and the book turns over several times a day; net exposure is kept close to zero. Each exchange runs its own independent system.</p>
-      </div>
-      <div class="block">
-        <h3>Risk</h3>
-        <p>Risk is expressed through position size, concentration and overall exposure. No single contract carries more than a small share of the book, net exposure is kept close to zero, and book size scales with the account balance, so exposure contracts through drawdowns and re-scales with recovery. Leverage and sizing are set per account; the reasoning behind sizing rather than hard stops is covered in the due-diligence materials.</p>
-      </div>
-      <div class="block">
-        <h3>Operations</h3>
-        <p>Fully automated, 24/7. Automated playbooks are the first responder to any incident — halting, reconciling positions against the exchange, reconnecting feeds or restarting a strategy — with every action logged and alerted. Instance health is monitored continuously.</p>
+        <h3>How research reaches live trading</h3>
+        <p>A candidate earns a place only if its edge survives realistic costs, adds something the portfolio does not already have, and can be executed at the intended size. Live results are compared with their simulations every day, and what live trading teaches feeds back into the next round of research.</p>
       </div>
       <div class="block">
         <h3>In depth</h3>
-        <p>The full walk-through — what the strategy is trying to capture, why many weak signals and independent exchange systems matter, and how each stage is tested — is in <a href="notes/how-the-system-works.html">Note 02, How the system works</a>.</p>
+        <p><a href="notes/how-the-system-works.html">Note 02 — How the system works</a> walks through the system from data to live orders. <a href="notes/how-research-earns-a-place.html">Note 03 — How research earns a place</a> covers how new strategies are judged.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="record">
+    <p class="label">Track record</p>
+    <div class="body">
+      <h2>Nearly three years of live, verifiable results.</h2>
+      <p>The strategies have traded client and proprietary accounts continuously since late 2023 and have been profitable in every calendar year since launch — roughly +100% a year at 1× leverage, with an information ratio of around 2.5 on a conservative blended basis. Drawdowns are part of the record: the largest have been in the low twenties, and the one that began in July 2026 is still being recovered.</p>
+      <p>Results differ by exchange, by leverage and by when an allocation started, so no single figure describes every account. We share the full daily return series of each exchange as a workbook, and a read-only API key on a live account so the stream can be checked directly at the exchange.</p>
+      <details class="method"><summary>Methodology</summary><p>Performance is measured from actual account balance changes, net of trading fees and funding, before performance fees, non-compounded, at 1× leverage, per exchange and as a blended allocation across exchanges, with figures stated as of the end of the latest completed month.</p></details>
+      <p class="actions"><a class="btn" href="#contact">Request the full track record</a></p>
     </div>
   </section>
 
@@ -104,18 +93,27 @@
     <p class="label">Research</p>
     <div class="body">
       <h2>Built in live markets, improved by what they taught us.</h2>
-      <p><strong>The base.</strong> The system went live on Binance in late 2023 with its own data, its own signal pool and its own execution. OKX followed in 2024 and Bybit in 2025, each as an independent system rather than a copy — the exchanges differ in participants, fees and microstructure, and a portfolio tuned to one does not transfer unchanged to another.</p>
-      <p><strong>What live trading showed.</strong> Years of daily reconciliation between simulated and live results taught us where the model and the market diverge: execution costs that vary by venue and by hour, contracts whose behaviour changes after listing, and periods when strategies that had been consistently profitable lose together. The drawdown of summer 2026 was of that last kind, and it set the agenda for the year.</p>
-      <p><strong>What changed.</strong> We added a premium data source and a set of low-correlation strategies aimed at larger, more liquid contracts; brought LLM-assisted tooling into research, which widened the range of data and ideas feeding the signal pool; and tightened the universe filter for contracts that trade erratically after listing. Realised volatility of the portfolio has roughly halved since the summer.</p>
-      <p><strong>What we are working on.</strong> Capacity toward US$30–50M across exchanges, execution research specific to each exchange, and client-facing reporting so each client can follow its account without asking us.</p>
+      <p>The system went live on one exchange in late 2023 and was extended to others as independent systems rather than copies. Years of daily reconciliation between simulated and live results have shown where model and market diverge — execution costs that vary by exchange and by hour, contracts whose behaviour changes after listing, periods when strategies that had been consistently profitable lose together — and each finding has changed how the next round of research is specified. The drawdown of summer 2026 was of that last kind: it led to new data sources, low-correlation strategies on larger contracts, and a wider research pipeline assisted by LLM tooling.</p>
+      <ul class="notes-list cards">
+        <li>
+          <span class="meta">Note 02</span>
+          <a href="notes/how-the-system-works.html">How the system works</a>
+          <p>How signals become a portfolio and live trades, and why many weak signals and independent exchange systems matter.</p>
+        </li>
+        <li>
+          <span class="meta">Note 03</span>
+          <a href="notes/how-research-earns-a-place.html">How research earns a place in live trading</a>
+          <p>How new ideas are tested, and how we decide whether a candidate improves the portfolio.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
   <section class="section" id="custody">
     <p class="label">Structure</p>
     <div class="body">
-      <h2>The account is yours. We hold the key, not the funds.</h2>
-      <p>Clients open the exchange account in their own name and keep the login. The system connects through one trade-only API key: no withdrawal rights, restricted to our servers. Every fill, fee and funding payment appears in the client's own account history at the exchange, visible at any time with the client's login or a read-only key given to an auditor. Our record of every position and balance is reconciled against the venue daily, and anything we cannot explain reaches the client before anything else. Deleting the key stops the software that second.</p>
+      <h2>The account is yours.</h2>
+      <p>Clients open the exchange account in their own name and keep the login. The system connects through one trade-only API key with no withdrawal rights. Every fill, fee and funding payment appears in the client's own account history at the exchange, visible at any time, and the client can stop the software by deleting the key.</p>
       <p><a href="notes/what-we-can-and-cannot-do.html">Note 01 — What we can and cannot do on a client's account</a></p>
     </div>
   </section>
@@ -124,7 +122,7 @@
     <p class="label">About</p>
     <div class="body">
       <h2>Seven years in systematic trading. Research through live execution.</h2>
-      <p>Pokesystem's founder has spent seven years in systematic markets — first in equity statistical arbitrage at hedge funds trading US and European equities, then in crypto derivatives from 2021, running client capital at a digital-asset trading firm before founding Pokesystem. Research, execution and client relationships sit with the same person, so what a client is told about the system comes from the person who built and runs it. The system itself is designed to run unattended, with automated incident handling, so day-to-day operation does not depend on anyone being at a desk. It has traded live client and proprietary capital without interruption since late 2023.</p>
+      <p>Pokesystem's founder has spent seven years in systematic markets — first in equity statistical arbitrage at hedge funds trading US and European equities, then in crypto derivatives from 2021, running client capital at a digital-asset trading firm before founding Pokesystem. Research, execution and client relationships sit with the same person, so what a client is told about the system comes from the person who built and runs it.</p>
     </div>
   </section>
 
